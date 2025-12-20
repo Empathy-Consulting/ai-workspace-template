@@ -1,0 +1,78 @@
+{
+  "name": "AI Automation Workspace",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    }
+  },
+  
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postStartCommand": "code README.md",
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "saoudrizwan.claude-dev",
+        "drcika.apc-extension"
+      ],
+      "settings": {
+        "workbench.activityBar.location": "hidden",
+        "workbench.statusBar.visible": false,
+        "window.menuBarVisibility": "hidden",
+        "window.commandCenter": false,
+        "workbench.layoutControl.enabled": false,
+        
+        "editor.minimap.enabled": false,
+        "breadcrumbs.enabled": false,
+        "editor.lineNumbers": "off",
+        "editor.glyphMargin": false,
+        "editor.folding": false,
+        "editor.scrollbar.horizontal": "hidden",
+        "editor.scrollbar.vertical": "hidden",
+        
+        "workbench.editor.showTabs": "single",
+        "workbench.editor.editorActionsLocation": "hidden",
+        
+        "explorer.openEditors.visible": 1,
+        "explorer.compactFolders": false,
+        
+        "files.exclude": {
+          "**/.git": true,
+          "**/.devcontainer": true,
+          "**/.bmad": true,
+          "**/.vscode": true,
+          "**/node_modules": true,
+          "**/*.json": true,
+          "**/*.sh": true,
+          "**/*.yaml": true,
+          "**/*.yml": true,
+          "**/.gitignore": true,
+          "**/.env*": true,
+          "**/backend": true
+        },
+        
+        "workbench.editorAssociations": {
+          "*.md": "vscode.markdown.preview.editor"
+        },
+        
+        "markdown.preview.fontSize": 16,
+        "markdown.preview.lineHeight": 1.6,
+        
+        "workbench.panel.defaultLocation": "bottom",
+        "workbench.colorTheme": "Default Light Modern",
+        "workbench.iconTheme": "vs-minimal",
+        "workbench.startupEditor": "readme",
+        
+        "editor.fontFamily": "system-ui, -apple-system, sans-serif",
+        "editor.fontSize": 15,
+        
+        "claude-dev.customInstructions": "Ты - Automation Assistant. Помогаешь пользователям создавать автоматизации бизнес-процессов. Говори просто, без технического жаргона. Задавай уточняющие вопросы по одному. Используй инструменты Composio для подключения сервисов. Генерируй n8n workflows для автоматизаций."
+      }
+    }
+  }
+}
