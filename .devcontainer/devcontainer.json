@@ -1,197 +1,99 @@
 {
   "name": "AI Zen Workspace",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "20"
-    },
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.11"
-    }
-  },
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
 
   "customizations": {
     "vscode": {
       "extensions": [
-        // AI Assistant
-        "saoudrizwan.claude-dev",
-        // Markdown editing and preview
+        "anthropic.claude-code",
+        "google.geminicodeassist",
+        "openai.chatgpt",
+        "github.copilot",
+        "github.copilot-chat",
         "yzhang.markdown-all-in-one",
-        // Mermaid diagrams in markdown
         "bierner.markdown-mermaid",
-        // Office files viewer (xlsx, docx, pptx, pdf, csv)
         "cweijan.vscode-office",
-        // Task runner UI
-        "actboy168.tasks",
-        // Interactive guided tours
-        "vsls-contrib.codetour",
-        // Better file icons
         "pkief.material-icon-theme"
       ],
       "settings": {
-        // ========================================
-        // THEME AND APPEARANCE
-        // ========================================
-        
-        // Light theme for better readability
-        "workbench.colorTheme": "Default Light Modern",
-        // Material icons for better file recognition
-        "workbench.iconTheme": "material-icon-theme",
-        // Show README on startup as landing page
-        "workbench.startupEditor": "readme",
+        "github.copilot.enable": {
+          "*": true
+        },
+        "github.copilot.editor.enableAutoCompletions": true,
 
-        // ========================================
-        // LAYOUT - HIDING UI ELEMENTS
-        // ========================================
-        
-        // Hide left activity bar (icons for explorer, search, etc.)
-        "workbench.activityBar.location": "hidden",
-        // Hide bottom status bar
-        "workbench.statusBar.visible": false,
-        // Hide layout control buttons in title bar
-        "workbench.layoutControl.enabled": false,
-        // Show only one tab, hide tab bar clutter
-        "workbench.editor.showTabs": "single",
-        // Hide editor action buttons (split, more actions)
-        "workbench.editor.editorActionsLocation": "hidden",
-        // Place sidebar on right (for AI chat panel)
-        "workbench.sideBar.location": "right",
-        // Place terminal/output panel at bottom
+        "workbench.activityBar.location": "default",
+        "workbench.auxiliaryBar.visible": true,
+        "workbench.sideBar.location": "left",
+        "claude-vscode.sidebar.open": true,
         "workbench.panel.defaultLocation": "bottom",
+        "workbench.colorTheme": "Default Light Modern",
+        "workbench.iconTheme": "material-icon-theme",
+        "workbench.startupEditor": "readme",
+        "workbench.statusBar.visible": false,
+        "workbench.layoutControl.enabled": false,
+        "workbench.editor.showTabs": "single",
+        "workbench.editor.editorActionsLocation": "hidden",
 
-        // ========================================
-        // WINDOW - TITLE BAR
-        // ========================================
-        
-        // Hide menu bar (File, Edit, View, etc.)
         "window.menuBarVisibility": "hidden",
-        // Hide command center in title bar
         "window.commandCenter": false,
 
-        // ========================================
-        // EDITOR ASSOCIATIONS - FILE VIEWERS
-        // ========================================
-        
-        // Open office files and documents with appropriate viewers
         "workbench.editorAssociations": {
-          // Excel spreadsheets
           "*.xlsx": "cweijan.officeViewer",
-          // Word documents
           "*.docx": "cweijan.officeViewer",
-          // PowerPoint presentations
           "*.pptx": "cweijan.officeViewer",
-          // PDF documents
           "*.pdf": "cweijan.officeViewer",
-          // CSV files as spreadsheet
           "*.csv": "cweijan.officeViewer",
-          // Markdown with enhanced preview
           "*.md": "cweijan.markdownViewer"
         },
 
-        // ========================================
-        // EDITOR - CLEAN TEXT EDITING
-        // ========================================
-        
-        // Hide minimap (code overview on the right)
         "editor.minimap.enabled": false,
-        // Hide breadcrumbs (file path navigation)
         "editor.breadcrumbs.enabled": false,
-        // Hide line numbers
         "editor.lineNumbers": "off",
-        // Disable code folding arrows
         "editor.folding": false,
-        // Hide whitespace characters
         "editor.renderWhitespace": "none",
-        // Hide indentation guides
         "editor.guides.indentation": false,
-        // Hide glyph margin (breakpoints, etc.)
         "editor.glyphMargin": false,
-        // Hide scrollbars for cleaner look
         "editor.scrollbar.horizontal": "hidden",
         "editor.scrollbar.vertical": "hidden",
-        // Wrap long lines instead of horizontal scroll
         "editor.wordWrap": "on",
-
-        // ========================================
-        // EDITOR - TYPOGRAPHY
-        // ========================================
-        
-        // Comfortable font size for reading
         "editor.fontSize": 16,
-        // Generous line spacing for readability
         "editor.lineHeight": 1.8,
-        // System font for native look
         "editor.fontFamily": "system-ui, -apple-system, sans-serif",
-
-        // ========================================
-        // EDITOR - DISABLE CODING FEATURES
-        // ========================================
-        
-        // Disable autocomplete suggestions
         "editor.quickSuggestions": {
           "comments": "off",
           "strings": "off",
           "other": "off"
         },
-        // Disable hover tooltips
         "editor.hover.enabled": false,
 
-        // ========================================
-        // FILE EXPLORER
-        // ========================================
-        
-        // Show only 1 item in "Open Editors" section
         "explorer.openEditors.visible": 1,
-        // Show full folder hierarchy (no compact view)
         "explorer.compactFolders": false,
-        // Disable drag and drop to prevent accidents
         "explorer.confirmDragAndDrop": false,
         "explorer.enableDragAndDrop": false,
 
-        // ========================================
-        // FILES - AUTO SAVE AND FILTERING
-        // ========================================
-        
-        // Auto-save files after typing stops
         "files.autoSave": "afterDelay",
-        // Hide technical files from explorer
         "files.exclude": {
           "**/.git": true,
           "**/.devcontainer": true,
           "**/.vscode": true,
           "**/node_modules": true,
-          "**/*.json": true,
-          "**/*.sh": true,
-          "**/*.yaml": true,
-          "**/*.yml": true,
           "**/.gitignore": true,
           "**/.env*": true
         },
 
-        // ========================================
-        // MARKDOWN
-        // ========================================
-        
-        // Comfortable font size in preview
         "markdown.preview.fontSize": 16,
-        // Generous line spacing in preview
         "markdown.preview.lineHeight": 1.6,
-
-        // ========================================
-        // TERMINAL
-        // ========================================
-        
-        // Readable terminal font size
         "terminal.integrated.fontSize": 14,
-
-        // ========================================
-        // PRIVACY
-        // ========================================
-        
-        // Disable telemetry
         "telemetry.telemetryLevel": "off"
       }
     }
+  },
+
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @google/gemini-cli && mkdir -p ~/.vscode-server/extensions/composio.composio-skills-0.1.0 && unzip -o /workspaces/${localWorkspaceFolderBasename}/.extensions/composio-skills-0.1.0.vsix -d ~/.vscode-server/extensions/composio.composio-skills-0.1.0 && mv ~/.vscode-server/extensions/composio.composio-skills-0.1.0/extension/* ~/.vscode-server/extensions/composio.composio-skills-0.1.0/ 2>/dev/null || true",
+
+  "remoteEnv": {
+    "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
+    "GOOGLE_API_KEY": "${localEnv:GOOGLE_API_KEY}",
+    "COMPOSIO_API_KEY": "${localEnv:COMPOSIO_API_KEY}"
   }
 }
