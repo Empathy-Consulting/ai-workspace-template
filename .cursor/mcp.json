@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "gmail": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@composio/mcp-server-composio"
+      ],
+      "env": {
+        "COMPOSIO_API_KEY": "",
+        "INTEGRATION": "gmail"
+      }
+    }
+  }
+}
