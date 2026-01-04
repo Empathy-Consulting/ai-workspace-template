@@ -89,7 +89,7 @@
     }
   },
 
-  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @google/gemini-cli && mkdir -p ~/.vscode-server/extensions/composio.composio-skills-0.1.0 && unzip -o /workspaces/${localWorkspaceFolderBasename}/.extensions/composio-skills-0.1.0.vsix -d ~/.vscode-server/extensions/composio.composio-skills-0.1.0 && mv ~/.vscode-server/extensions/composio.composio-skills-0.1.0/extension/* ~/.vscode-server/extensions/composio.composio-skills-0.1.0/ 2>/dev/null || true",
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @google/gemini-cli && ode --install-extension .extensions/composio-skills-0.1.0.vsix || true",
 
   "remoteEnv": {
     "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
